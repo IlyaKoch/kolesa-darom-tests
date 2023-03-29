@@ -24,8 +24,8 @@ public class AuthorizationTest extends TestBase {
         step("Click login icon", () -> $x("//div[contains(text(), 'Войти')]").click());
         step("Switch on tab Login with password", () -> $x("//span[contains(text(), 'Войти по паролю')]").click());
         step("Enter phone number and password", () -> {
-            $("#phoneNum").setValue("9397595659");
-            $("#password").setValue("SimbirSoft2023");
+            $("#phoneNum").setValue(credentials.userPhone());
+            $("#password").setValue(credentials.userPassword());
         });
         step("Click on Log in button", () -> $x("//span[contains(text(), 'Войти')]/ancestor::button").click());
 

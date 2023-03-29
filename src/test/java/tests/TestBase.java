@@ -2,11 +2,16 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import config.CredentialAppConfig;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class TestBase {
+
+    public static CredentialAppConfig credentials =
+            ConfigFactory.create(CredentialAppConfig.class);
 
     @BeforeAll
     static void beforeAll() {
