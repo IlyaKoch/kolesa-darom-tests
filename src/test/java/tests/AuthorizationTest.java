@@ -34,4 +34,25 @@ public class AuthorizationTest extends TestBase {
             $x("//div[@class=\"user-widget__name\"]").shouldHave(Condition.text("Кочетков Илья"));
         });
     }
+
+    @Test
+    @AllureId("16233")
+    @DisplayName("Negative Login with wrong password")
+    void negativeAuthorizationTestWithIncorrectPassword() {
+        Configuration.startMaximized = true;
+
+        step("Open main page", () -> open(""));
+
+        step("Click login icon", () -> $x("//div[contains(text(), 'Войти')]").click());
+        step("Switch on tab Login with password", () -> $x("//span[contains(text(), 'Войти по паролю')]").click());
+        step("Enter phone number and password", () -> {
+            $("#phoneNum").setValue(credentials.userPhone());
+            $("#password").setValue("IncorrectPass");
+        });
+        step("Click on Log in button", () -> $x("//span[contains(text(), 'Войти')]/ancestor::button").click());
+
+        step("Check error", () -> {
+            $x("//div[contains(text(), 'Неверный логин или пароль')]").shouldHave(Condition.text("Неверный логин или пароль"));
+        });
+    }
 }
