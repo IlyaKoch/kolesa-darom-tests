@@ -16,7 +16,7 @@ public class AuthorizationTest extends TestBase {
     @Test
     @AllureId("16231")
     @DisplayName("Successful login")
-    void positiveAuthorizationTest() {
+    public void positiveAuthorizationTest() {
         Configuration.startMaximized = true;
 
         step("Open main page", () -> open(""));
@@ -38,7 +38,7 @@ public class AuthorizationTest extends TestBase {
     @Test
     @AllureId("16233")
     @DisplayName("Negative Login with wrong password")
-    void negativeAuthorizationTestWithIncorrectPassword() {
+    public void negativeAuthorizationTestWithIncorrectPassword() {
         Configuration.startMaximized = true;
 
         step("Open main page", () -> open(""));
